@@ -1,0 +1,20 @@
+---
+title: "Evan Cooper"
+image: cooperevan.github.io/images/000266390024.jpeg
+toc: true
+about: 
+  template: jolla
+  image-shape: round
+  image-width: 17em
+  links:
+    - text: LinkedIn
+      href: https://www.linkedin.com/in/evan-cooper-758619210/
+    - text: GitHub
+      href: https://github.com/cooperevan
+    - text: Email
+      href: ejc5502@gmail.com
+---
+
+![](images/000266390024.jpeg){width="2299"}
+
+Hi, my name is Evan,

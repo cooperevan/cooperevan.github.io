@@ -1,0 +1,15 @@
+{
+  "hash": "42ffc58382ac4f3d478281106979d4b0",
+  "result": {
+    "engine": "knitr",
+    "markdown": "---\ntitle: \"cooperevan.github.io\"\n---\n\n::: {.cell}\n\n```{.r .cell-code}\n#Evan Cooper\n```\n:::\n\n\n\nHi, my name is Evan,\n\n",
+    "supporting": [],
+    "filters": [
+      "rmarkdown/pagebreak.lua"
+    ],
+    "includes": {},
+    "engineDependencies": {},
+    "preserve": {},
+    "postProcess": true
+  }
+}
