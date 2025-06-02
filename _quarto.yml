@@ -1,21 +1,24 @@
 project:
   type: website
+  output-dir: docs
 
 website:
   title: "cooperevan"
   navbar:
-    left:
+    right:
       - href: index.qmd
         text: Home
       - about.qmd
+      - href: resume.qmd
+        text: Resume
       - project.qmd
-      - resume.qmd
-      - gym.qmd
+      - href: gym.qmd
+        text: Gym
 
 format:
   html:
-    theme: minty
-    css: styles.css
+    theme: styles.scss
+    linkcolor: orange
     toc: true
     page-layout: full
 
