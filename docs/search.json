@@ -4,7 +4,7 @@
     "href": "project.html",
     "title": "Project",
     "section": "",
-    "text": "cool"
+    "text": "Under construction"
   },
   {
     "objectID": "index.html",
@@ -16,9 +16,9 @@
   {
     "objectID": "gym.html",
     "href": "gym.html",
-    "title": "gym",
+    "title": "Gym Data",
     "section": "",
-    "text": "yeah boiiii"
+    "text": "For the past few months, I’ve been collecting data on my gym schedule to see if what workouts I do change my sleep schedule (in hours). I hypothesize that on leg days, I will sleep for more hours.\n\ndata table\n\n\n\n\n\n\n\n\nday\nduration_of_workout\nexercise_type\nasleep\ntime\nalcohol\nscreen_time\ncalories_eaten\n\n\n\n\nMonday 4/21\n1.5\nPush\n7.40\nMorning\nYes\n4.40\n3392\n\n\nTuesday 4/22\n1.3\nPull\n6.47\nMorning\nNo\n5.50\n3336\n\n\nWednesday 4/23\n\nRest\n6.55\n\nYes\n4.50\n2600\n\n\nThursday 4/24\n\nRest\n6.55\n\nYes\nNA\n3015\n\n\nFri 4/25\n\nRest\n7.92\n\nYes\nNA\nNA\n\n\nSat 4/26\n1h\nPull\n6.95\nMorning\nYes\nNA\n1610\n\n\nThur 4/30\n1.5\nPush\n7.45\nMorning\nYes\n5.00\n2231\n\n\nFri 05/09\n1.5\nPush\n8.00\nAfternoon\nYes\n4.65\n1898\n\n\nSun 5/11\n1.25\nPull\nNA\nAfternoon\nNo\n5.36\nNA\n\n\nMonday 5/12\n0.5\nLegs\n5.00\nAfternoon\nNo\n4.27\nNA\n\n\nTuesday 5/13\n1.5\nPush\n7.00\nAfternoon\nNo\n3.70\n1376\n\n\nWednesday 5/14\n1.5\nPull\nNA\nMorning\nNo\n3.67\nNA\n\n\nThursday 5/15\n\nRest\n7.00\n\nNo\n2.70\nNA\n\n\nSat 5/17\n\nRest\n7.50\n\nNo\n0.03\nNA\n\n\nSun 5/18\n1.5\nPull\n6.75\nNight\nNo\n0.03\nNA\n\n\nMon 5/19\n1.5\nPush\n8.97\nMorning\nNo\n1.70\n3165\n\n\nTues 5/20\n1.5\nLegs\n6.75\nMorning\nNo\n6.06\n1773\n\n\nWed 5/21\n1\nPull\nNA\n\nNo\nNA\nNA\n\n\nMon 5/26\n\nRest\n7.22\n\nYes\n5.05\n1761\n\n\nTues 5/27\n1.5\nPush\n7.53\nEvening\nNo\n5.47\n3127\n\n\nWed 5/28\n1.5\nLegs\n6.82\nMorning\nYes\n3.58\n3077\n\n\nThur 5/29\n1.5\nPull\n7.23\nEvening\nNo\n6.06\n2391\n\n\nSat\n\nPush\nNA\n\n\nNA\nNA\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nthe averages\nBelow are the average hours of sleep for each exercise.\nPush\n\n\n[1] 7.725\n\n\nPull\n\n\n[1] 6.85\n\n\nLegs\n\n\n[1] 6.19\n\n\nRest\n\n\n[1] 7.123333"
   },
   {
     "objectID": "about.html",
