@@ -1,0 +1,23 @@
+/*-- scss:defaults --*/
+
+// Colors
+$juniper: #54662CFF;
+$lightgreen: #BED6B3FF;
+$rusty: #D95204FF;
+$gray: #64605f;
+$lilblue: #009BB0FF;
+$cream: #FDFBF7;
+
+
+// Base document colors
+$navbar-bg: $juniper; // navbar
+$navbar-fg: $lightgreen; // navbar foreground elements
+$navbar-hl: $lilblue; // highlight color when hovering over navbar links
+$body-bg: $cream; // page background 
+$body-color: $gray; // page text 
+$footer-bg: $cream; // footer 
+$link-color: $rusty; // hyperlinks 
+
+// Inline code
+$code-bg: $cream; // inline code background color
+$code-color: $lilblue; // inline code text color

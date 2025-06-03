@@ -1,20 +1,21 @@
 ---
 title: "Evan Cooper"
-image: cooperevan.github.io/images/000266390024.jpeg
+image: jtree_me.jpeg
 toc: true
 about: 
   template: jolla
   image-shape: round
-  image-width: 17em
+  image-width: 27em
   links:
-    - text: LinkedIn
+    - icon: linkedin
+      text: LinkedIn
       href: https://www.linkedin.com/in/evan-cooper-758619210/
-    - text: GitHub
+    - icon: github
+      text: Github
       href: https://github.com/cooperevan
-    - text: Email
+    - icon: envelope
+      text: Email
       href: ejc5502@gmail.com
 ---
 
-![](images/000266390024.jpeg){width="2299"}
-
-Hi, my name is Evan,
+Welcome! My name is Evan and I have recently graduated from the **University of Santa Barbara, California** and am now working towards a career in **Environmental Science** with a focus on Conservation and Management. Outside of my profession you'll find me exploring nature, in the gym, or looking at birds.

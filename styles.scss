@@ -1,0 +1,27 @@
+/*-- scss:defaults --*/
+//fonts
+@import url('https://fonts.googleapis.com/css2?family=Ancizar+Serif:ital,wght@0,300..900;1,300..900&family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&display=swap');
+
+// Colors
+$juniper: #54662CFF;
+$lightgreen: #BED6B3FF;
+$rusty: #D95204FF;
+$gray: #64605f;
+$lilblue: #009BB0FF;
+$cream: #FDFBF7;
+$orange: #F29F05FF;
+$pumpkin: #F28705FF;
+
+
+// Base document colors
+$navbar-bg: $juniper; // navbar
+$navbar-fg: $lightgreen; // navbar foreground elements
+$navbar-hl: $pumpkin; // highlight color when hovering over navbar links
+$body-bg: $cream; // page background 
+$body-color: $gray; // page text 
+$footer-bg: $cream; // footer 
+$link-color: $rusty; // hyperlinks 
+
+// Inline code
+$code-bg: $cream; // inline code background color
+$code-color: $lilblue; // inline code text color
