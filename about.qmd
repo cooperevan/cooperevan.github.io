@@ -4,12 +4,18 @@ title: "About"
 
 ## the profession
 
-I'm a recent graduate of the University of Santa Barbara with a BA in environmental science looking to dive into the world of conservation, wildlife management, ecology, really anything that gets me outside. I had the opportunity to travel to southern Peru during my undergrad to study the ecology of different rain forest habitats, and was introduced to the conservation efforts to combat the resource extraction present in the amazon rain-forest such as deforestation, mining, and over-hunting.
+I'm a recent graduate of the University of Santa Barbara with a BA in environmental science looking to dive into the world of conservation, wildlife management, ecology, really anything that gets me outside.
 
-![Collard Trogon, Peru 2024](images/trogon.jpeg){fig-align="center" width="300"}
+I had the opportunity to travel to southern Peru during my undergrad to study the ecology of different rain forest habitats, and was introduced to the conservation efforts to combat the resource extraction present in the amazon rain-forest such as deforestation, mining, and over-hunting.
+
+![Collard Trogon, Peru 2024](images/trogon.jpeg){fig-align="center" width="600"}
 
 ## the hobbies
 
-![Hike to Tangerine Falls, Santa Barbara 2025](images/tan_fall.jpeg){fig-align="center" width="300"}
+Anyone who knows me knows you will always find me outside. You could find me surfing up and down the coast of California, out on the crags rock-climbing, or on any number of hikes (like the one below!).
+
+![Hike to Tangerine Falls, Santa Barbara 2025](images/tan_fall.jpeg){fig-align="center" width="600"}
+
+![Joshua Tree, 2024](images/truck_tree.jpeg){fig-align="left"}
 
 ## the dog
