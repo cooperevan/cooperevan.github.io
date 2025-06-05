@@ -4,7 +4,7 @@ format: html
 toc: false
 ---
 
-For the past few months, I've been collecting data on my gym schedule to see if what workouts I do change my sleep schedule (in hours). Originally, I thought that after leg days my sleep would be better, but it seems that I sleep the worst after legs, and actually sleep the best after push days, which are my favorite.
+For the past few months, I've been collecting data on my gym schedule to see if what workouts I do change my sleep schedule (in hours).
 
 ```{r, message=FALSE,warning=FALSE,echo=FALSE}
 library(tidyverse)
@@ -16,7 +16,8 @@ library(gt)
 
 ### data table
 
-```{r,message=FALSE,warning=FALSE,echo=FALSE}
+```{r,message=FALSE,warning=FALSE}
+#here I cleaned and wrangled my data
 stat_data <- read.csv("STATS workout data - Sheet1-4.csv") |> 
   clean_names() |> 
   rename(day = day_of_the_week, time = time_of_day_of_workout) |> 
@@ -24,13 +25,16 @@ stat_data <- read.csv("STATS workout data - Sheet1-4.csv") |>
 
 clean_data <- stat_data %>%
   mutate(exercise_type = na_if(exercise_type, "")) %>%
-  drop_na(exercise_type)
+  drop_na(exercise_type)#dropped columns with no data, or NA
 
+
+#gt table to show data
 gt(clean_data)
 
 ```
 
 ```{r}
+#ggplot data
 ggplot(clean_data, 
 aes(x = asleep, y = exercise_type, fill = exercise_type)) +
 geom_density_ridges() +

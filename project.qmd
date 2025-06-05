@@ -3,7 +3,7 @@ title: "Project"
 format: html
 ---
 
-```{r, warning=FALSE, message=FALSE}
+```{r, warning=FALSE, message=FALSE, echo=FALSE}
 library(httr)
 library(rStrava)
 library(dplyr)
@@ -14,7 +14,7 @@ library(mapview)
 library(webshot)
 ```
 
-```{r}
+```{r, echo=FALSE}
 app_name <- 'evanstrava' # chosen by user
 app_client_id  <- '162797' # an integer, assigned by Strava
 app_secret <- '81a499b604a026d0a5fad0be6faf02266f663749' # an alphanumeric secret, assigned by Strava
@@ -22,7 +22,7 @@ app_secret <- '81a499b604a026d0a5fad0be6faf02266f663749' # an alphanumeric secre
 stoken <- readRDS("strava_token.rds")
 ```
 
-```{r, eval=FALSE}
+```{r, eval=FALSE,echo=FALSE}
 # create the authentication token
 stoken <- httr::config(token = strava_oauth(app_name, 
                                             app_client_id, 
@@ -32,7 +32,7 @@ stoken <- httr::config(token = strava_oauth(app_name,
 saveRDS(stoken, "strava_token.rds")
 ```
 
-```{r}
+```{r,warning=FALSE, message=FALSE, echo=FALSE}
 my_data  <- get_activity_list(stoken)
 act_data <- compile_activities(my_data)
 
