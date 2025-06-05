@@ -3,6 +3,8 @@ title: "Project"
 format: html
 ---
 
+# Strava activities
+
 ```{r, warning=FALSE, message=FALSE, echo=FALSE}
 library(httr)
 library(rStrava)
