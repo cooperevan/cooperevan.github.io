@@ -47,7 +47,7 @@ Associates of Science, Ecology, Biodiv. & Conserv, AS \| GPA 3.8
 
 -   Provided in depth and thorough information on the wildlife, habitats, and history within the Santa Barbara Zoo.
 
--   Learned the importance of patience, cooperation, and providing upfront and clear expectations to ensure a mutually respected environment.\
+-   Learned the importance of patience, cooperation, and providing upfront and clear expectations to ensure a mutually respected environment.
 
 **Server** \| Annisquam Yacht Club (Gloucester, MA)				**July 2024 - Sept 2024**
 
@@ -93,9 +93,13 @@ Associates of Science, Ecology, Biodiv. & Conserv, AS \| GPA 3.8
 
 -   Gained access to the Santa Barbara waste processing facility and learned the day to day of dealing with waste.
 
-**Sustainable Communities 116**
+**Geospatial Information System (GIS) ENVS 154**
 
--   Learned about the root of our socioeconomic crisis and understood how we can make our world more sustainable.
+-   Learned to capture, analyze, manage and share spatial data using arcGIS Pro.
+
+-   Became well versed in cleaning, layering, and organizing data using geoprocessing tools such as spatial joins, clips, and unions.
+
+-   Created storyboard of orangutan habitat and peat soil fire using GIS data.
 
 **Ecosystem Biodiversity 101**
 
@@ -105,11 +109,15 @@ Associates of Science, Ecology, Biodiv. & Conserv, AS \| GPA 3.8
 
 -   Learned about Traditional Ecological Knowledge from the descendants of the local chumash people of Santa Barbara and how we can build a connection between people and the land.
 
-**Low Carbon Society**
+**STATS FOR ENVS 193DS**
 
--   Learned how to transition to a low carbon society with alterations pertaining to development, integrating knowledge about climate change science, responses to climate impacts, and the technological, behavioral and policy solutions needed for local and global transitions away from fossil fuels.
+-   Identify appropriate statistical analyses to test hypotheses
 
-\
+-   Conduct statistical analyses and visualize data using the R programming language
+
+-   Implement best practices for reproducible analysis and collaborative work
+
+-   Interpret and contextualize statistical results in general concepts from environmental studies
 
 # **RELATED ENVIRONMENTAL EXPERIENCE**
 
