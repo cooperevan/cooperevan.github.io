@@ -1,10 +1,10 @@
 ---
-title: "Gym Data"
+title: "Gym Data Collection"
 format: html
 toc: false
 ---
 
-For the past few months, I've been collecting data on my gym schedule to see if what workouts I do change my sleep schedule (in hours). I hypothesize that on leg days, I will sleep for more hours.
+For the past few months, I've been collecting data on my gym schedule to see if what workouts I do change my sleep schedule (in hours). Originally, I thought that after leg days my sleep would be better, but it seems that I sleep the worst after legs, and actually sleep the best after push days, which are my favorite.
 
 ```{r, message=FALSE,warning=FALSE,echo=FALSE}
 library(tidyverse)
@@ -28,6 +28,9 @@ clean_data <- stat_data %>%
 
 gt(clean_data)
 
+```
+
+```{r}
 ggplot(clean_data, 
 aes(x = asleep, y = exercise_type, fill = exercise_type)) +
 geom_density_ridges() +

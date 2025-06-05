@@ -3,9 +3,9 @@ title: "Project"
 format: html
 ---
 
-```{r}
+```{r, warning=FALSE, message=FALSE}
 library(httr)
-library(rStrava)     # devtools::install_github('/rStrava') 
+library(rStrava)
 library(dplyr)
 library(leaflet)
 library(htmlwidgets)
@@ -37,18 +37,17 @@ my_data  <- get_activity_list(stoken)
 act_data <- compile_activities(my_data)
 
 keeps   <- c('map.summary_polyline', 'upload_id')
-my_acts <- dplyr::select(act_data, match(keeps, names(act_data)))
+my_acts <- select(act_data, match(keeps, names(act_data)))
 
 #setting the map
 map <- leaflet(options = leafletOptions(zoomControl = FALSE)) %>%
   addProviderTiles('CartoDB.Positron',
                    options = providerTileOptions(noWrap = TRUE, minZoom = 12, maxZoom = 18)) %>%
-  setView(lng = -119.8606, lat = 34.4133, zoom = 14)
-map
+  setView(lng = -119.8606, 
+          lat = 34.4133, 
+          zoom = 14)
 
-mapshot(map, file = "sbmap.png")
-
-#add my own data
+#loop in data using DC code
 loop <- unique(my_acts$upload_id)
 for (i in loop) {
   activity <- filter(my_acts, upload_id == i)
@@ -58,8 +57,7 @@ for (i in loop) {
 }
 
 map
+
+saveWidget(map, file="runningmap.html") #export the final map
 ```
 
-```{r}
-saveWidget(map, file="runningmap.html")
-```

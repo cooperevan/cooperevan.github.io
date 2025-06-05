@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>Gym Data – cooperevan</title>
+<title>Gym Data Collection – cooperevan</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -19,6 +19,40 @@ ul.task-list li input[type="checkbox"] {
   width: 0.8em;
   margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
   vertical-align: middle;
+}
+/* CSS for syntax highlighting */
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { display: inline-block; text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
 }
 </style>
 
@@ -124,7 +158,7 @@ ul.task-list li input[type="checkbox"] {
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title">Gym Data</h1>
+<h1 class="title">Gym Data Collection</h1>
 </div>
 
 
@@ -141,28 +175,28 @@ ul.task-list li input[type="checkbox"] {
 </header>
 
 
-<p>For the past few months, I’ve been collecting data on my gym schedule to see if what workouts I do change my sleep schedule (in hours). I hypothesize that on leg days, I will sleep for more hours.</p>
+<p>For the past few months, I’ve been collecting data on my gym schedule to see if what workouts I do change my sleep schedule (in hours). Originally, I thought that after leg days my sleep would be better, but it seems that I sleep the worst after legs, and actually sleep the best after push days, which are my favorite.</p>
 <section id="data-table" class="level3">
 <h3 class="anchored" data-anchor-id="data-table">data table</h3>
 <div class="cell">
 <div class="cell-output-display">
-<div id="culhkbangf" style="padding-left:0px;padding-right:0px;padding-top:10px;padding-bottom:10px;overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
-<style>#culhkbangf table {
+<div id="jkploqznbx" style="padding-left:0px;padding-right:0px;padding-top:10px;padding-bottom:10px;overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
+<style>#jkploqznbx table {
   font-family: system-ui, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji';
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
 
-#culhkbangf thead, #culhkbangf tbody, #culhkbangf tfoot, #culhkbangf tr, #culhkbangf td, #culhkbangf th {
+#jkploqznbx thead, #jkploqznbx tbody, #jkploqznbx tfoot, #jkploqznbx tr, #jkploqznbx td, #jkploqznbx th {
   border-style: none;
 }
 
-#culhkbangf p {
+#jkploqznbx p {
   margin: 0;
   padding: 0;
 }
 
-#culhkbangf .gt_table {
+#jkploqznbx .gt_table {
   display: table;
   border-collapse: collapse;
   line-height: normal;
@@ -188,12 +222,12 @@ ul.task-list li input[type="checkbox"] {
   border-left-color: #D3D3D3;
 }
 
-#culhkbangf .gt_caption {
+#jkploqznbx .gt_caption {
   padding-top: 4px;
   padding-bottom: 4px;
 }
 
-#culhkbangf .gt_title {
+#jkploqznbx .gt_title {
   color: #333333;
   font-size: 125%;
   font-weight: initial;
@@ -205,7 +239,7 @@ ul.task-list li input[type="checkbox"] {
   border-bottom-width: 0;
 }
 
-#culhkbangf .gt_subtitle {
+#jkploqznbx .gt_subtitle {
   color: #333333;
   font-size: 85%;
   font-weight: initial;
@@ -217,7 +251,7 @@ ul.task-list li input[type="checkbox"] {
   border-top-width: 0;
 }
 
-#culhkbangf .gt_heading {
+#jkploqznbx .gt_heading {
   background-color: #FFFFFF;
   text-align: center;
   border-bottom-color: #FFFFFF;
@@ -229,13 +263,13 @@ ul.task-list li input[type="checkbox"] {
   border-right-color: #D3D3D3;
 }
 
-#culhkbangf .gt_bottom_border {
+#jkploqznbx .gt_bottom_border {
   border-bottom-style: solid;
   border-bottom-width: 2px;
   border-bottom-color: #D3D3D3;
 }
 
-#culhkbangf .gt_col_headings {
+#jkploqznbx .gt_col_headings {
   border-top-style: solid;
   border-top-width: 2px;
   border-top-color: #D3D3D3;
@@ -250,7 +284,7 @@ ul.task-list li input[type="checkbox"] {
   border-right-color: #D3D3D3;
 }
 
-#culhkbangf .gt_col_heading {
+#jkploqznbx .gt_col_heading {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -270,7 +304,7 @@ ul.task-list li input[type="checkbox"] {
   overflow-x: hidden;
 }
 
-#culhkbangf .gt_column_spanner_outer {
+#jkploqznbx .gt_column_spanner_outer {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -282,15 +316,15 @@ ul.task-list li input[type="checkbox"] {
   padding-right: 4px;
 }
 
-#culhkbangf .gt_column_spanner_outer:first-child {
+#jkploqznbx .gt_column_spanner_outer:first-child {
   padding-left: 0;
 }
 
-#culhkbangf .gt_column_spanner_outer:last-child {
+#jkploqznbx .gt_column_spanner_outer:last-child {
   padding-right: 0;
 }
 
-#culhkbangf .gt_column_spanner {
+#jkploqznbx .gt_column_spanner {
   border-bottom-style: solid;
   border-bottom-width: 2px;
   border-bottom-color: #D3D3D3;
@@ -302,11 +336,11 @@ ul.task-list li input[type="checkbox"] {
   width: 100%;
 }
 
-#culhkbangf .gt_spanner_row {
+#jkploqznbx .gt_spanner_row {
   border-bottom-style: hidden;
 }
 
-#culhkbangf .gt_group_heading {
+#jkploqznbx .gt_group_heading {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -332,7 +366,7 @@ ul.task-list li input[type="checkbox"] {
   text-align: left;
 }
 
-#culhkbangf .gt_empty_group_heading {
+#jkploqznbx .gt_empty_group_heading {
   padding: 0.5px;
   color: #333333;
   background-color: #FFFFFF;
@@ -347,15 +381,15 @@ ul.task-list li input[type="checkbox"] {
   vertical-align: middle;
 }
 
-#culhkbangf .gt_from_md > :first-child {
+#jkploqznbx .gt_from_md > :first-child {
   margin-top: 0;
 }
 
-#culhkbangf .gt_from_md > :last-child {
+#jkploqznbx .gt_from_md > :last-child {
   margin-bottom: 0;
 }
 
-#culhkbangf .gt_row {
+#jkploqznbx .gt_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -374,7 +408,7 @@ ul.task-list li input[type="checkbox"] {
   overflow-x: hidden;
 }
 
-#culhkbangf .gt_stub {
+#jkploqznbx .gt_stub {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -387,7 +421,7 @@ ul.task-list li input[type="checkbox"] {
   padding-right: 5px;
 }
 
-#culhkbangf .gt_stub_row_group {
+#jkploqznbx .gt_stub_row_group {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -401,15 +435,15 @@ ul.task-list li input[type="checkbox"] {
   vertical-align: top;
 }
 
-#culhkbangf .gt_row_group_first td {
+#jkploqznbx .gt_row_group_first td {
   border-top-width: 2px;
 }
 
-#culhkbangf .gt_row_group_first th {
+#jkploqznbx .gt_row_group_first th {
   border-top-width: 2px;
 }
 
-#culhkbangf .gt_summary_row {
+#jkploqznbx .gt_summary_row {
   color: #333333;
   background-color: #FFFFFF;
   text-transform: inherit;
@@ -419,16 +453,16 @@ ul.task-list li input[type="checkbox"] {
   padding-right: 5px;
 }
 
-#culhkbangf .gt_first_summary_row {
+#jkploqznbx .gt_first_summary_row {
   border-top-style: solid;
   border-top-color: #D3D3D3;
 }
 
-#culhkbangf .gt_first_summary_row.thick {
+#jkploqznbx .gt_first_summary_row.thick {
   border-top-width: 2px;
 }
 
-#culhkbangf .gt_last_summary_row {
+#jkploqznbx .gt_last_summary_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -438,7 +472,7 @@ ul.task-list li input[type="checkbox"] {
   border-bottom-color: #D3D3D3;
 }
 
-#culhkbangf .gt_grand_summary_row {
+#jkploqznbx .gt_grand_summary_row {
   color: #333333;
   background-color: #FFFFFF;
   text-transform: inherit;
@@ -448,7 +482,7 @@ ul.task-list li input[type="checkbox"] {
   padding-right: 5px;
 }
 
-#culhkbangf .gt_first_grand_summary_row {
+#jkploqznbx .gt_first_grand_summary_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -458,7 +492,7 @@ ul.task-list li input[type="checkbox"] {
   border-top-color: #D3D3D3;
 }
 
-#culhkbangf .gt_last_grand_summary_row_top {
+#jkploqznbx .gt_last_grand_summary_row_top {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -468,11 +502,11 @@ ul.task-list li input[type="checkbox"] {
   border-bottom-color: #D3D3D3;
 }
 
-#culhkbangf .gt_striped {
+#jkploqznbx .gt_striped {
   background-color: rgba(128, 128, 128, 0.05);
 }
 
-#culhkbangf .gt_table_body {
+#jkploqznbx .gt_table_body {
   border-top-style: solid;
   border-top-width: 2px;
   border-top-color: #D3D3D3;
@@ -481,7 +515,7 @@ ul.task-list li input[type="checkbox"] {
   border-bottom-color: #D3D3D3;
 }
 
-#culhkbangf .gt_footnotes {
+#jkploqznbx .gt_footnotes {
   color: #333333;
   background-color: #FFFFFF;
   border-bottom-style: none;
@@ -495,7 +529,7 @@ ul.task-list li input[type="checkbox"] {
   border-right-color: #D3D3D3;
 }
 
-#culhkbangf .gt_footnote {
+#jkploqznbx .gt_footnote {
   margin: 0px;
   font-size: 90%;
   padding-top: 4px;
@@ -504,7 +538,7 @@ ul.task-list li input[type="checkbox"] {
   padding-right: 5px;
 }
 
-#culhkbangf .gt_sourcenotes {
+#jkploqznbx .gt_sourcenotes {
   color: #333333;
   background-color: #FFFFFF;
   border-bottom-style: none;
@@ -518,7 +552,7 @@ ul.task-list li input[type="checkbox"] {
   border-right-color: #D3D3D3;
 }
 
-#culhkbangf .gt_sourcenote {
+#jkploqznbx .gt_sourcenote {
   font-size: 90%;
   padding-top: 4px;
   padding-bottom: 4px;
@@ -526,72 +560,72 @@ ul.task-list li input[type="checkbox"] {
   padding-right: 5px;
 }
 
-#culhkbangf .gt_left {
+#jkploqznbx .gt_left {
   text-align: left;
 }
 
-#culhkbangf .gt_center {
+#jkploqznbx .gt_center {
   text-align: center;
 }
 
-#culhkbangf .gt_right {
+#jkploqznbx .gt_right {
   text-align: right;
   font-variant-numeric: tabular-nums;
 }
 
-#culhkbangf .gt_font_normal {
+#jkploqznbx .gt_font_normal {
   font-weight: normal;
 }
 
-#culhkbangf .gt_font_bold {
+#jkploqznbx .gt_font_bold {
   font-weight: bold;
 }
 
-#culhkbangf .gt_font_italic {
+#jkploqznbx .gt_font_italic {
   font-style: italic;
 }
 
-#culhkbangf .gt_super {
+#jkploqznbx .gt_super {
   font-size: 65%;
 }
 
-#culhkbangf .gt_footnote_marks {
+#jkploqznbx .gt_footnote_marks {
   font-size: 75%;
   vertical-align: 0.4em;
   position: initial;
 }
 
-#culhkbangf .gt_asterisk {
+#jkploqznbx .gt_asterisk {
   font-size: 100%;
   vertical-align: 0;
 }
 
-#culhkbangf .gt_indent_1 {
+#jkploqznbx .gt_indent_1 {
   text-indent: 5px;
 }
 
-#culhkbangf .gt_indent_2 {
+#jkploqznbx .gt_indent_2 {
   text-indent: 10px;
 }
 
-#culhkbangf .gt_indent_3 {
+#jkploqznbx .gt_indent_3 {
   text-indent: 15px;
 }
 
-#culhkbangf .gt_indent_4 {
+#jkploqznbx .gt_indent_4 {
   text-indent: 20px;
 }
 
-#culhkbangf .gt_indent_5 {
+#jkploqznbx .gt_indent_5 {
   text-indent: 25px;
 }
 
-#culhkbangf .katex-display {
+#jkploqznbx .katex-display {
   display: inline-flex !important;
   margin-bottom: 0.75em !important;
 }
 
-#culhkbangf div.Reactable > div.rt-table > div.rt-thead > div.rt-tr.rt-tr-group-header > div.rt-th-group:after {
+#jkploqznbx div.Reactable > div.rt-table > div.rt-thead > div.rt-tr.rt-tr-group-header > div.rt-th-group:after {
   height: 0px !important;
 }
 </style>
@@ -845,10 +879,34 @@ ul.task-list li input[type="checkbox"] {
 
 </div>
 </div>
+</div>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(clean_data, </span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="fu">aes</span>(<span class="at">x =</span> asleep, <span class="at">y =</span> exercise_type, <span class="at">fill =</span> exercise_type)) <span class="sc">+</span></span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="fu">geom_density_ridges</span>() <span class="sc">+</span></span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a><span class="fu">theme_ridges</span>() <span class="sc">+</span> </span>
+<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a><span class="fu">theme</span>(<span class="at">legend.position =</span> <span class="st">"none"</span>,</span>
+<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a>      <span class="at">axis.title =</span> <span class="fu">element_text</span>(<span class="at">color =</span> <span class="st">"#00496FFF"</span>), </span>
+<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a>      <span class="at">axis.line =</span> <span class="fu">element_line</span>(<span class="at">color =</span> <span class="st">"#00496FFF"</span>), </span>
+<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a>      <span class="at">axis.text =</span> <span class="fu">element_text</span>(<span class="at">color =</span> <span class="st">"#00496FFF"</span>), </span>
+<span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a>      <span class="at">axis.ticks =</span> <span class="fu">element_line</span>(<span class="at">color =</span> <span class="st">"#00496FFF"</span>),</span>
+<span id="cb1-10"><a href="#cb1-10" aria-hidden="true" tabindex="-1"></a>      <span class="at">plot.title =</span> <span class="fu">element_text</span>(<span class="at">color =</span> <span class="st">"#DD4124FF"</span>))<span class="sc">+</span></span>
+<span id="cb1-11"><a href="#cb1-11" aria-hidden="true" tabindex="-1"></a><span class="fu">scale_fill_manual</span>(<span class="at">values =</span> PNWColors<span class="sc">::</span><span class="fu">pnw_palette</span>(<span class="st">"Bay"</span>, <span class="dv">5</span>))<span class="sc">+</span></span>
+<span id="cb1-12"><a href="#cb1-12" aria-hidden="true" tabindex="-1"></a><span class="fu">labs</span>(<span class="at">x =</span> <span class="st">"Sleep (Hours)"</span>,</span>
+<span id="cb1-13"><a href="#cb1-13" aria-hidden="true" tabindex="-1"></a><span class="at">y =</span> <span class="st">"Exercise"</span>,</span>
+<span id="cb1-14"><a href="#cb1-14" aria-hidden="true" tabindex="-1"></a><span class="at">title =</span> <span class="st">"Workout Plot"</span>,</span>
+<span id="cb1-15"><a href="#cb1-15" aria-hidden="true" tabindex="-1"></a><span class="at">caption =</span> <span class="st">"Evan's Gym Plot"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stderr">
+<pre><code>Picking joint bandwidth of 0.306</code></pre>
+</div>
+<div class="cell-output cell-output-stderr">
+<pre><code>Warning: Removed 4 rows containing non-finite outside the scale range
+(`stat_density_ridges()`).</code></pre>
+</div>
 <div class="cell-output-display">
 <div>
 <figure class="figure">
-<p><img src="gym_files/figure-html/unnamed-chunk-2-1.png" class="img-fluid figure-img" width="672"></p>
+<p><img src="gym_files/figure-html/unnamed-chunk-3-1.png" class="img-fluid figure-img" width="672"></p>
 </figure>
 </div>
 </div>
