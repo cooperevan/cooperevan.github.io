@@ -1,11 +1,15 @@
 ---
-title: "Project"
+title: "Strava Activities"
 format: html
+execute: 
+  warning: false
+  message: false
+  echo: fenced
 ---
 
-# Strava activities
+Below is an interactive map I created of my Strava activities, with the help of Daniel Cullen's post [here](https://www.dancullen.me/articles/creating-a-heatmap-in-r-with-google-polylines)!
 
-```{r, warning=FALSE, message=FALSE, echo=FALSE}
+```{r}
 library(httr)
 library(rStrava)
 library(dplyr)
@@ -34,7 +38,7 @@ stoken <- httr::config(token = strava_oauth(app_name,
 saveRDS(stoken, "strava_token.rds")
 ```
 
-```{r,warning=FALSE, message=FALSE, echo=FALSE}
+```{r,warning=FALSE, message=FALSE}
 my_data  <- get_activity_list(stoken)
 act_data <- compile_activities(my_data)
 
@@ -44,7 +48,7 @@ my_acts <- select(act_data, match(keeps, names(act_data)))
 #setting the map
 map <- leaflet(options = leafletOptions(zoomControl = FALSE)) %>%
   addProviderTiles('CartoDB.Positron',
-                   options = providerTileOptions(noWrap = TRUE, minZoom = 12, maxZoom = 20)) %>%
+                   options = providerTileOptions(noWrap = TRUE, minZoom = 7, maxZoom = 20)) %>%
   setView(lng = -119.8606, 
           lat = 34.4133, 
           zoom = 14)

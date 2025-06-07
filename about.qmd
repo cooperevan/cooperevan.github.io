@@ -1,5 +1,9 @@
 ---
 title: "About"
+execute: 
+  echo: false
+  message: false
+  warning: false
 ---
 
 ## the profession
@@ -12,10 +16,68 @@ I had the opportunity to travel to Peru during my undergrad to study the ecology
 
 ## the hobbies
 
-Anyone who knows me knows you will always find me outside. You could find me surfing up and down the coast of California, out on the crags rock-climbing, or on any number of hikes (like the one below!).
-
-![Hike to Tangerine Falls, Santa Barbara 2025](images/tan_fall.jpeg){fig-align="center" width="600"}
+Anyone who knows me knows you will always find me outside. You could find me surfing up and down the coast of California, out on the crags rock-climbing, or on any number of hikes.
 
 ![Joshua Tree, 2024](images/truck_tree.jpeg){fig-align="left"}
 
-## the dog
+## the strava
+
+Below is an interactive map I created of my Strava activities, with the help of Daniel Cullen's post [here](https://www.dancullen.me/articles/creating-a-heatmap-in-r-with-google-polylines)!
+
+```{r}
+library(httr)
+library(rStrava)
+library(dplyr)
+library(leaflet)
+library(htmlwidgets)
+library(googleway) 
+library(mapview)
+library(webshot)
+```
+
+```{r, eval=FALSE}
+# create the authentication token
+stoken <- httr::config(token = strava_oauth(app_name, 
+                                            app_client_id, 
+                                            app_secret, 
+                                            app_scope="activity:read_all", 
+                                            cache = TRUE))
+saveRDS(stoken, "strava_token.rds")
+```
+
+```{r}
+app_name <- 'evanstrava' # chosen by user
+app_client_id  <- '162797' # an integer, assigned by Strava
+app_secret <- '81a499b604a026d0a5fad0be6faf02266f663749' # an alphanumeric secret, assigned by Strava
+
+stoken <- readRDS("strava_token.rds")
+```
+
+```{r,warning=FALSE, message=FALSE}
+my_data  <- get_activity_list(stoken)
+act_data <- compile_activities(my_data)
+
+keeps   <- c('map.summary_polyline', 'upload_id')
+my_acts <- select(act_data, match(keeps, names(act_data)))
+
+#setting the map
+map <- leaflet(options = leafletOptions(zoomControl = FALSE)) %>%
+  addProviderTiles('CartoDB.Positron',
+                   options = providerTileOptions(noWrap = TRUE, minZoom = 7, maxZoom = 20)) %>%
+  setView(lng = -119.8606, 
+          lat = 34.4133, 
+          zoom = 14)
+
+#loop in data using DC code
+loop <- unique(my_acts$upload_id)
+for (i in loop) {
+  activity <- filter(my_acts, upload_id == i)
+  coords   <- googleway::decode_pl(activity$map.summary_polyline)
+  map      <- addPolylines(map, lng = coords$lon, lat = coords$lat,
+                      color = 'darkorange', opacity = 1/4, weight = 3)
+}
+
+map
+
+saveWidget(map, file="runningmap.html") #export the final map
+```

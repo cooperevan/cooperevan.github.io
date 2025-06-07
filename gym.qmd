@@ -2,23 +2,27 @@
 title: "Gym Data Collection"
 format: html
 toc: false
+execute: 
+  message: FALSE
+  warning: FALSE
 ---
 
 For the past few months, I've been collecting data on my gym schedule to see if what workouts I do change my sleep schedule (in hours).
 
-```{r, message=FALSE,warning=FALSE,echo=FALSE}
+```{r, echo=FALSE}
 library(tidyverse)
 library(janitor)
 library(ggridges)
 library(PNWColors)
 library(gt)
+library(ggplot2)
 ```
 
 ### data table
 
-```{r,message=FALSE,warning=FALSE}
+```{r}
 #here I cleaned and wrangled my data
-stat_data <- read.csv("STATS workout data - Sheet1-4.csv") |> 
+stat_data <- read.csv("STATS workout data - Sheet1-5.csv") |> 
   clean_names() |> 
   rename(day = day_of_the_week, time = time_of_day_of_workout) |> 
   filter(exercise_type != "Sarms")
@@ -49,33 +53,27 @@ scale_fill_manual(values = PNWColors::pnw_palette("Bay", 5))+
 labs(x = "Sleep (Hours)",
 y = "Exercise",
 title = "Workout Plot",
-caption = "Evan's Gym Plot")
+caption = "figure 1")
 ```
 
 ### the averages
 
 Below are the average hours of sleep for each exercise.
 
-**Push**
-
 ```{r, echo=FALSE}
-mean(clean_data$asleep[clean_data$exercise_type == "Push"], na.rm = TRUE)#mean push
-```
-
-**Pull**
-
-```{r,echo=FALSE}
-mean(clean_data$asleep[clean_data$exercise_type == "Pull"], na.rm = TRUE)#mean pull
-```
-
-**Legs**
-
-```{r,echo=FALSE}
-mean(clean_data$asleep[clean_data$exercise_type == "Legs"], na.rm = TRUE)#mean legs
-```
-
-**Rest**
-
-```{r,echo=FALSE}
-mean(clean_data$asleep[clean_data$exercise_type == "Rest"], na.rm = TRUE)
+ggplot(clean_data,
+       aes(x = exercise_type, y = asleep, color = exercise_type))+
+  geom_boxplot()+ 
+  geom_jitter()+
+  scale_color_manual(values = PNWColors::pnw_palette("Bay", 5))+
+  theme(
+      axis.title = element_text(color = "#00496FFF"), 
+      axis.line = element_line(color = "#00496FFF"), 
+      axis.text = element_text(color = "#00496FFF"), 
+      axis.ticks = element_line(color = "#00496FFF"),
+      plot.title = element_text(color = "#DD4124FF"))+
+  labs(x ="Exercise Type" ,
+       y ="Time Asleep (hours)",
+       title = "Mean Values for Exercise Type and Sleep Duration",
+       caption = "figure 2")
 ```

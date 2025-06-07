@@ -134,12 +134,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <span class="menu-text">Resume</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link" href="./project.html"> 
-<span class="menu-text">Project</span></a>
-  </li>  
-  <li class="nav-item">
     <a class="nav-link active" href="./gym.html" aria-current="page"> 
-<span class="menu-text">Gym</span></a>
+<span class="menu-text">Gym Project</span></a>
   </li>  
 </ul>
           </div> <!-- /navcollapse -->
@@ -175,28 +171,41 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </header>
 
 
-<p>For the past few months, I’ve been collecting data on my gym schedule to see if what workouts I do change my sleep schedule (in hours). Originally, I thought that after leg days my sleep would be better, but it seems that I sleep the worst after legs, and actually sleep the best after push days, which are my favorite.</p>
+<p>For the past few months, I’ve been collecting data on my gym schedule to see if what workouts I do change my sleep schedule (in hours).</p>
 <section id="data-table" class="level3">
 <h3 class="anchored" data-anchor-id="data-table">data table</h3>
 <div class="cell">
+<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="co">#here I cleaned and wrangled my data</span></span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a>stat_data <span class="ot">&lt;-</span> <span class="fu">read.csv</span>(<span class="st">"STATS workout data - Sheet1-5.csv"</span>) <span class="sc">|&gt;</span> </span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">clean_names</span>() <span class="sc">|&gt;</span> </span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">rename</span>(<span class="at">day =</span> day_of_the_week, <span class="at">time =</span> time_of_day_of_workout) <span class="sc">|&gt;</span> </span>
+<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(exercise_type <span class="sc">!=</span> <span class="st">"Sarms"</span>)</span>
+<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a>clean_data <span class="ot">&lt;-</span> stat_data <span class="sc">%&gt;%</span></span>
+<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">exercise_type =</span> <span class="fu">na_if</span>(exercise_type, <span class="st">""</span>)) <span class="sc">%&gt;%</span></span>
+<span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a>  <span class="fu">drop_na</span>(exercise_type)<span class="co">#dropped columns with no data, or NA</span></span>
+<span id="cb1-10"><a href="#cb1-10" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-11"><a href="#cb1-11" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-12"><a href="#cb1-12" aria-hidden="true" tabindex="-1"></a><span class="co">#gt table to show data</span></span>
+<span id="cb1-13"><a href="#cb1-13" aria-hidden="true" tabindex="-1"></a><span class="fu">gt</span>(clean_data)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
-<div id="jkploqznbx" style="padding-left:0px;padding-right:0px;padding-top:10px;padding-bottom:10px;overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
-<style>#jkploqznbx table {
+<div id="qcdcbjdube" style="padding-left:0px;padding-right:0px;padding-top:10px;padding-bottom:10px;overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
+<style>#qcdcbjdube table {
   font-family: system-ui, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji';
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
 
-#jkploqznbx thead, #jkploqznbx tbody, #jkploqznbx tfoot, #jkploqznbx tr, #jkploqznbx td, #jkploqznbx th {
+#qcdcbjdube thead, #qcdcbjdube tbody, #qcdcbjdube tfoot, #qcdcbjdube tr, #qcdcbjdube td, #qcdcbjdube th {
   border-style: none;
 }
 
-#jkploqznbx p {
+#qcdcbjdube p {
   margin: 0;
   padding: 0;
 }
 
-#jkploqznbx .gt_table {
+#qcdcbjdube .gt_table {
   display: table;
   border-collapse: collapse;
   line-height: normal;
@@ -222,12 +231,12 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   border-left-color: #D3D3D3;
 }
 
-#jkploqznbx .gt_caption {
+#qcdcbjdube .gt_caption {
   padding-top: 4px;
   padding-bottom: 4px;
 }
 
-#jkploqznbx .gt_title {
+#qcdcbjdube .gt_title {
   color: #333333;
   font-size: 125%;
   font-weight: initial;
@@ -239,7 +248,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   border-bottom-width: 0;
 }
 
-#jkploqznbx .gt_subtitle {
+#qcdcbjdube .gt_subtitle {
   color: #333333;
   font-size: 85%;
   font-weight: initial;
@@ -251,7 +260,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   border-top-width: 0;
 }
 
-#jkploqznbx .gt_heading {
+#qcdcbjdube .gt_heading {
   background-color: #FFFFFF;
   text-align: center;
   border-bottom-color: #FFFFFF;
@@ -263,13 +272,13 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   border-right-color: #D3D3D3;
 }
 
-#jkploqznbx .gt_bottom_border {
+#qcdcbjdube .gt_bottom_border {
   border-bottom-style: solid;
   border-bottom-width: 2px;
   border-bottom-color: #D3D3D3;
 }
 
-#jkploqznbx .gt_col_headings {
+#qcdcbjdube .gt_col_headings {
   border-top-style: solid;
   border-top-width: 2px;
   border-top-color: #D3D3D3;
@@ -284,7 +293,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   border-right-color: #D3D3D3;
 }
 
-#jkploqznbx .gt_col_heading {
+#qcdcbjdube .gt_col_heading {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -304,7 +313,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   overflow-x: hidden;
 }
 
-#jkploqznbx .gt_column_spanner_outer {
+#qcdcbjdube .gt_column_spanner_outer {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -316,15 +325,15 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   padding-right: 4px;
 }
 
-#jkploqznbx .gt_column_spanner_outer:first-child {
+#qcdcbjdube .gt_column_spanner_outer:first-child {
   padding-left: 0;
 }
 
-#jkploqznbx .gt_column_spanner_outer:last-child {
+#qcdcbjdube .gt_column_spanner_outer:last-child {
   padding-right: 0;
 }
 
-#jkploqznbx .gt_column_spanner {
+#qcdcbjdube .gt_column_spanner {
   border-bottom-style: solid;
   border-bottom-width: 2px;
   border-bottom-color: #D3D3D3;
@@ -336,11 +345,11 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   width: 100%;
 }
 
-#jkploqznbx .gt_spanner_row {
+#qcdcbjdube .gt_spanner_row {
   border-bottom-style: hidden;
 }
 
-#jkploqznbx .gt_group_heading {
+#qcdcbjdube .gt_group_heading {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -366,7 +375,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   text-align: left;
 }
 
-#jkploqznbx .gt_empty_group_heading {
+#qcdcbjdube .gt_empty_group_heading {
   padding: 0.5px;
   color: #333333;
   background-color: #FFFFFF;
@@ -381,15 +390,15 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   vertical-align: middle;
 }
 
-#jkploqznbx .gt_from_md > :first-child {
+#qcdcbjdube .gt_from_md > :first-child {
   margin-top: 0;
 }
 
-#jkploqznbx .gt_from_md > :last-child {
+#qcdcbjdube .gt_from_md > :last-child {
   margin-bottom: 0;
 }
 
-#jkploqznbx .gt_row {
+#qcdcbjdube .gt_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -408,7 +417,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   overflow-x: hidden;
 }
 
-#jkploqznbx .gt_stub {
+#qcdcbjdube .gt_stub {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -421,7 +430,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   padding-right: 5px;
 }
 
-#jkploqznbx .gt_stub_row_group {
+#qcdcbjdube .gt_stub_row_group {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -435,15 +444,15 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   vertical-align: top;
 }
 
-#jkploqznbx .gt_row_group_first td {
+#qcdcbjdube .gt_row_group_first td {
   border-top-width: 2px;
 }
 
-#jkploqznbx .gt_row_group_first th {
+#qcdcbjdube .gt_row_group_first th {
   border-top-width: 2px;
 }
 
-#jkploqznbx .gt_summary_row {
+#qcdcbjdube .gt_summary_row {
   color: #333333;
   background-color: #FFFFFF;
   text-transform: inherit;
@@ -453,16 +462,16 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   padding-right: 5px;
 }
 
-#jkploqznbx .gt_first_summary_row {
+#qcdcbjdube .gt_first_summary_row {
   border-top-style: solid;
   border-top-color: #D3D3D3;
 }
 
-#jkploqznbx .gt_first_summary_row.thick {
+#qcdcbjdube .gt_first_summary_row.thick {
   border-top-width: 2px;
 }
 
-#jkploqznbx .gt_last_summary_row {
+#qcdcbjdube .gt_last_summary_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -472,7 +481,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   border-bottom-color: #D3D3D3;
 }
 
-#jkploqznbx .gt_grand_summary_row {
+#qcdcbjdube .gt_grand_summary_row {
   color: #333333;
   background-color: #FFFFFF;
   text-transform: inherit;
@@ -482,7 +491,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   padding-right: 5px;
 }
 
-#jkploqznbx .gt_first_grand_summary_row {
+#qcdcbjdube .gt_first_grand_summary_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -492,7 +501,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   border-top-color: #D3D3D3;
 }
 
-#jkploqznbx .gt_last_grand_summary_row_top {
+#qcdcbjdube .gt_last_grand_summary_row_top {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -502,11 +511,11 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   border-bottom-color: #D3D3D3;
 }
 
-#jkploqznbx .gt_striped {
+#qcdcbjdube .gt_striped {
   background-color: rgba(128, 128, 128, 0.05);
 }
 
-#jkploqznbx .gt_table_body {
+#qcdcbjdube .gt_table_body {
   border-top-style: solid;
   border-top-width: 2px;
   border-top-color: #D3D3D3;
@@ -515,7 +524,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   border-bottom-color: #D3D3D3;
 }
 
-#jkploqznbx .gt_footnotes {
+#qcdcbjdube .gt_footnotes {
   color: #333333;
   background-color: #FFFFFF;
   border-bottom-style: none;
@@ -529,7 +538,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   border-right-color: #D3D3D3;
 }
 
-#jkploqznbx .gt_footnote {
+#qcdcbjdube .gt_footnote {
   margin: 0px;
   font-size: 90%;
   padding-top: 4px;
@@ -538,7 +547,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   padding-right: 5px;
 }
 
-#jkploqznbx .gt_sourcenotes {
+#qcdcbjdube .gt_sourcenotes {
   color: #333333;
   background-color: #FFFFFF;
   border-bottom-style: none;
@@ -552,7 +561,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   border-right-color: #D3D3D3;
 }
 
-#jkploqznbx .gt_sourcenote {
+#qcdcbjdube .gt_sourcenote {
   font-size: 90%;
   padding-top: 4px;
   padding-bottom: 4px;
@@ -560,72 +569,72 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   padding-right: 5px;
 }
 
-#jkploqznbx .gt_left {
+#qcdcbjdube .gt_left {
   text-align: left;
 }
 
-#jkploqznbx .gt_center {
+#qcdcbjdube .gt_center {
   text-align: center;
 }
 
-#jkploqznbx .gt_right {
+#qcdcbjdube .gt_right {
   text-align: right;
   font-variant-numeric: tabular-nums;
 }
 
-#jkploqznbx .gt_font_normal {
+#qcdcbjdube .gt_font_normal {
   font-weight: normal;
 }
 
-#jkploqznbx .gt_font_bold {
+#qcdcbjdube .gt_font_bold {
   font-weight: bold;
 }
 
-#jkploqznbx .gt_font_italic {
+#qcdcbjdube .gt_font_italic {
   font-style: italic;
 }
 
-#jkploqznbx .gt_super {
+#qcdcbjdube .gt_super {
   font-size: 65%;
 }
 
-#jkploqznbx .gt_footnote_marks {
+#qcdcbjdube .gt_footnote_marks {
   font-size: 75%;
   vertical-align: 0.4em;
   position: initial;
 }
 
-#jkploqznbx .gt_asterisk {
+#qcdcbjdube .gt_asterisk {
   font-size: 100%;
   vertical-align: 0;
 }
 
-#jkploqznbx .gt_indent_1 {
+#qcdcbjdube .gt_indent_1 {
   text-indent: 5px;
 }
 
-#jkploqznbx .gt_indent_2 {
+#qcdcbjdube .gt_indent_2 {
   text-indent: 10px;
 }
 
-#jkploqznbx .gt_indent_3 {
+#qcdcbjdube .gt_indent_3 {
   text-indent: 15px;
 }
 
-#jkploqznbx .gt_indent_4 {
+#qcdcbjdube .gt_indent_4 {
   text-indent: 20px;
 }
 
-#jkploqznbx .gt_indent_5 {
+#qcdcbjdube .gt_indent_5 {
   text-indent: 25px;
 }
 
-#jkploqznbx .katex-display {
+#qcdcbjdube .katex-display {
   display: inline-flex !important;
   margin-bottom: 0.75em !important;
 }
 
-#jkploqznbx div.Reactable > div.rt-table > div.rt-thead > div.rt-tr.rt-tr-group-header > div.rt-th-group:after {
+#qcdcbjdube div.Reactable > div.rt-table > div.rt-thead > div.rt-tr.rt-tr-group-header > div.rt-th-group:after {
   height: 0px !important;
 }
 </style>
@@ -634,7 +643,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <thead>
 <tr class="gt_col_headings header">
 <th id="day" class="gt_col_heading gt_columns_bottom_border gt_left" data-quarto-table-cell-role="th" scope="col">day</th>
-<th id="duration_of_workout" class="gt_col_heading gt_columns_bottom_border gt_left" data-quarto-table-cell-role="th" scope="col">duration_of_workout</th>
+<th id="duration_of_workout" class="gt_col_heading gt_columns_bottom_border gt_right" data-quarto-table-cell-role="th" scope="col">duration_of_workout</th>
 <th id="exercise_type" class="gt_col_heading gt_columns_bottom_border gt_left" data-quarto-table-cell-role="th" scope="col">exercise_type</th>
 <th id="asleep" class="gt_col_heading gt_columns_bottom_border gt_right" data-quarto-table-cell-role="th" scope="col">asleep</th>
 <th id="time" class="gt_col_heading gt_columns_bottom_border gt_left" data-quarto-table-cell-role="th" scope="col">time</th>
@@ -646,7 +655,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <tbody class="gt_table_body">
 <tr class="odd">
 <td class="gt_row gt_left" headers="day">Monday 4/21</td>
-<td class="gt_row gt_left" headers="duration_of_workout">1.5</td>
+<td class="gt_row gt_right" headers="duration_of_workout">1.50</td>
 <td class="gt_row gt_left" headers="exercise_type">Push</td>
 <td class="gt_row gt_right" headers="asleep">7.40</td>
 <td class="gt_row gt_left" headers="time">Morning</td>
@@ -656,7 +665,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </tr>
 <tr class="even">
 <td class="gt_row gt_left" headers="day">Tuesday 4/22</td>
-<td class="gt_row gt_left" headers="duration_of_workout">1.3</td>
+<td class="gt_row gt_right" headers="duration_of_workout">1.30</td>
 <td class="gt_row gt_left" headers="exercise_type">Pull</td>
 <td class="gt_row gt_right" headers="asleep">6.47</td>
 <td class="gt_row gt_left" headers="time">Morning</td>
@@ -666,7 +675,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </tr>
 <tr class="odd">
 <td class="gt_row gt_left" headers="day">Wednesday 4/23</td>
-<td class="gt_row gt_left" headers="duration_of_workout"></td>
+<td class="gt_row gt_right" headers="duration_of_workout">NA</td>
 <td class="gt_row gt_left" headers="exercise_type">Rest</td>
 <td class="gt_row gt_right" headers="asleep">6.55</td>
 <td class="gt_row gt_left" headers="time"></td>
@@ -676,7 +685,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </tr>
 <tr class="even">
 <td class="gt_row gt_left" headers="day">Thursday 4/24</td>
-<td class="gt_row gt_left" headers="duration_of_workout"></td>
+<td class="gt_row gt_right" headers="duration_of_workout">NA</td>
 <td class="gt_row gt_left" headers="exercise_type">Rest</td>
 <td class="gt_row gt_right" headers="asleep">6.55</td>
 <td class="gt_row gt_left" headers="time"></td>
@@ -685,8 +694,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <td class="gt_row gt_right" headers="calories_eaten">3015</td>
 </tr>
 <tr class="odd">
-<td class="gt_row gt_left" headers="day">Fri 4/25</td>
-<td class="gt_row gt_left" headers="duration_of_workout"></td>
+<td class="gt_row gt_left" headers="day">Friday 4/25</td>
+<td class="gt_row gt_right" headers="duration_of_workout">NA</td>
 <td class="gt_row gt_left" headers="exercise_type">Rest</td>
 <td class="gt_row gt_right" headers="asleep">7.92</td>
 <td class="gt_row gt_left" headers="time"></td>
@@ -695,8 +704,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <td class="gt_row gt_right" headers="calories_eaten">NA</td>
 </tr>
 <tr class="even">
-<td class="gt_row gt_left" headers="day">Sat 4/26</td>
-<td class="gt_row gt_left" headers="duration_of_workout">1h</td>
+<td class="gt_row gt_left" headers="day">Saturday 4/26</td>
+<td class="gt_row gt_right" headers="duration_of_workout">1.00</td>
 <td class="gt_row gt_left" headers="exercise_type">Pull</td>
 <td class="gt_row gt_right" headers="asleep">6.95</td>
 <td class="gt_row gt_left" headers="time">Morning</td>
@@ -705,8 +714,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <td class="gt_row gt_right" headers="calories_eaten">1610</td>
 </tr>
 <tr class="odd">
-<td class="gt_row gt_left" headers="day">Thur 4/30</td>
-<td class="gt_row gt_left" headers="duration_of_workout">1.5</td>
+<td class="gt_row gt_left" headers="day">Wednesday 4/30</td>
+<td class="gt_row gt_right" headers="duration_of_workout">1.50</td>
 <td class="gt_row gt_left" headers="exercise_type">Push</td>
 <td class="gt_row gt_right" headers="asleep">7.45</td>
 <td class="gt_row gt_left" headers="time">Morning</td>
@@ -715,8 +724,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <td class="gt_row gt_right" headers="calories_eaten">2231</td>
 </tr>
 <tr class="even">
-<td class="gt_row gt_left" headers="day">Fri 05/09</td>
-<td class="gt_row gt_left" headers="duration_of_workout">1.5</td>
+<td class="gt_row gt_left" headers="day">Thursday 5/1</td>
+<td class="gt_row gt_right" headers="duration_of_workout">1.50</td>
 <td class="gt_row gt_left" headers="exercise_type">Push</td>
 <td class="gt_row gt_right" headers="asleep">8.00</td>
 <td class="gt_row gt_left" headers="time">Afternoon</td>
@@ -725,8 +734,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <td class="gt_row gt_right" headers="calories_eaten">1898</td>
 </tr>
 <tr class="odd">
-<td class="gt_row gt_left" headers="day">Sun 5/11</td>
-<td class="gt_row gt_left" headers="duration_of_workout">1.25</td>
+<td class="gt_row gt_left" headers="day">Friday 5/2</td>
+<td class="gt_row gt_right" headers="duration_of_workout">1.25</td>
 <td class="gt_row gt_left" headers="exercise_type">Pull</td>
 <td class="gt_row gt_right" headers="asleep">NA</td>
 <td class="gt_row gt_left" headers="time">Afternoon</td>
@@ -735,8 +744,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <td class="gt_row gt_right" headers="calories_eaten">NA</td>
 </tr>
 <tr class="even">
-<td class="gt_row gt_left" headers="day">Monday 5/12</td>
-<td class="gt_row gt_left" headers="duration_of_workout">0.5</td>
+<td class="gt_row gt_left" headers="day">Saturday 5/3</td>
+<td class="gt_row gt_right" headers="duration_of_workout">0.50</td>
 <td class="gt_row gt_left" headers="exercise_type">Legs</td>
 <td class="gt_row gt_right" headers="asleep">5.00</td>
 <td class="gt_row gt_left" headers="time">Afternoon</td>
@@ -745,8 +754,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <td class="gt_row gt_right" headers="calories_eaten">NA</td>
 </tr>
 <tr class="odd">
-<td class="gt_row gt_left" headers="day">Tuesday 5/13</td>
-<td class="gt_row gt_left" headers="duration_of_workout">1.5</td>
+<td class="gt_row gt_left" headers="day">Sunday 5/4</td>
+<td class="gt_row gt_right" headers="duration_of_workout">1.50</td>
 <td class="gt_row gt_left" headers="exercise_type">Push</td>
 <td class="gt_row gt_right" headers="asleep">7.00</td>
 <td class="gt_row gt_left" headers="time">Afternoon</td>
@@ -755,8 +764,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <td class="gt_row gt_right" headers="calories_eaten">1376</td>
 </tr>
 <tr class="even">
-<td class="gt_row gt_left" headers="day">Wednesday 5/14</td>
-<td class="gt_row gt_left" headers="duration_of_workout">1.5</td>
+<td class="gt_row gt_left" headers="day">Monday 5/5</td>
+<td class="gt_row gt_right" headers="duration_of_workout">1.50</td>
 <td class="gt_row gt_left" headers="exercise_type">Pull</td>
 <td class="gt_row gt_right" headers="asleep">NA</td>
 <td class="gt_row gt_left" headers="time">Morning</td>
@@ -765,8 +774,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <td class="gt_row gt_right" headers="calories_eaten">NA</td>
 </tr>
 <tr class="odd">
-<td class="gt_row gt_left" headers="day">Thursday 5/15</td>
-<td class="gt_row gt_left" headers="duration_of_workout"></td>
+<td class="gt_row gt_left" headers="day">Tuesday 5/6</td>
+<td class="gt_row gt_right" headers="duration_of_workout">NA</td>
 <td class="gt_row gt_left" headers="exercise_type">Rest</td>
 <td class="gt_row gt_right" headers="asleep">7.00</td>
 <td class="gt_row gt_left" headers="time"></td>
@@ -775,8 +784,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <td class="gt_row gt_right" headers="calories_eaten">NA</td>
 </tr>
 <tr class="even">
-<td class="gt_row gt_left" headers="day">Sat 5/17</td>
-<td class="gt_row gt_left" headers="duration_of_workout"></td>
+<td class="gt_row gt_left" headers="day">Thursday 5/8</td>
+<td class="gt_row gt_right" headers="duration_of_workout">NA</td>
 <td class="gt_row gt_left" headers="exercise_type">Rest</td>
 <td class="gt_row gt_right" headers="asleep">7.50</td>
 <td class="gt_row gt_left" headers="time"></td>
@@ -785,8 +794,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <td class="gt_row gt_right" headers="calories_eaten">NA</td>
 </tr>
 <tr class="odd">
-<td class="gt_row gt_left" headers="day">Sun 5/18</td>
-<td class="gt_row gt_left" headers="duration_of_workout">1.5</td>
+<td class="gt_row gt_left" headers="day">Friday 5/9</td>
+<td class="gt_row gt_right" headers="duration_of_workout">1.50</td>
 <td class="gt_row gt_left" headers="exercise_type">Pull</td>
 <td class="gt_row gt_right" headers="asleep">6.75</td>
 <td class="gt_row gt_left" headers="time">Night</td>
@@ -795,8 +804,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <td class="gt_row gt_right" headers="calories_eaten">NA</td>
 </tr>
 <tr class="even">
-<td class="gt_row gt_left" headers="day">Mon 5/19</td>
-<td class="gt_row gt_left" headers="duration_of_workout">1.5</td>
+<td class="gt_row gt_left" headers="day">Saturday 5/10</td>
+<td class="gt_row gt_right" headers="duration_of_workout">1.50</td>
 <td class="gt_row gt_left" headers="exercise_type">Push</td>
 <td class="gt_row gt_right" headers="asleep">8.97</td>
 <td class="gt_row gt_left" headers="time">Morning</td>
@@ -805,8 +814,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <td class="gt_row gt_right" headers="calories_eaten">3165</td>
 </tr>
 <tr class="odd">
-<td class="gt_row gt_left" headers="day">Tues 5/20</td>
-<td class="gt_row gt_left" headers="duration_of_workout">1.5</td>
+<td class="gt_row gt_left" headers="day">5/20/2025</td>
+<td class="gt_row gt_right" headers="duration_of_workout">1.50</td>
 <td class="gt_row gt_left" headers="exercise_type">Legs</td>
 <td class="gt_row gt_right" headers="asleep">6.75</td>
 <td class="gt_row gt_left" headers="time">Morning</td>
@@ -816,7 +825,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </tr>
 <tr class="even">
 <td class="gt_row gt_left" headers="day">Wed 5/21</td>
-<td class="gt_row gt_left" headers="duration_of_workout">1</td>
+<td class="gt_row gt_right" headers="duration_of_workout">1.00</td>
 <td class="gt_row gt_left" headers="exercise_type">Pull</td>
 <td class="gt_row gt_right" headers="asleep">NA</td>
 <td class="gt_row gt_left" headers="time"></td>
@@ -826,7 +835,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </tr>
 <tr class="odd">
 <td class="gt_row gt_left" headers="day">Mon 5/26</td>
-<td class="gt_row gt_left" headers="duration_of_workout"></td>
+<td class="gt_row gt_right" headers="duration_of_workout">NA</td>
 <td class="gt_row gt_left" headers="exercise_type">Rest</td>
 <td class="gt_row gt_right" headers="asleep">7.22</td>
 <td class="gt_row gt_left" headers="time"></td>
@@ -835,8 +844,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <td class="gt_row gt_right" headers="calories_eaten">1761</td>
 </tr>
 <tr class="even">
-<td class="gt_row gt_left" headers="day">Tues 5/27</td>
-<td class="gt_row gt_left" headers="duration_of_workout">1.5</td>
+<td class="gt_row gt_left" headers="day">5/27/2025</td>
+<td class="gt_row gt_right" headers="duration_of_workout">1.50</td>
 <td class="gt_row gt_left" headers="exercise_type">Push</td>
 <td class="gt_row gt_right" headers="asleep">7.53</td>
 <td class="gt_row gt_left" headers="time">Evening</td>
@@ -846,7 +855,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </tr>
 <tr class="odd">
 <td class="gt_row gt_left" headers="day">Wed 5/28</td>
-<td class="gt_row gt_left" headers="duration_of_workout">1.5</td>
+<td class="gt_row gt_right" headers="duration_of_workout">1.50</td>
 <td class="gt_row gt_left" headers="exercise_type">Legs</td>
 <td class="gt_row gt_right" headers="asleep">6.82</td>
 <td class="gt_row gt_left" headers="time">Morning</td>
@@ -855,24 +864,14 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <td class="gt_row gt_right" headers="calories_eaten">3077</td>
 </tr>
 <tr class="even">
-<td class="gt_row gt_left" headers="day">Thur 5/29</td>
-<td class="gt_row gt_left" headers="duration_of_workout">1.5</td>
+<td class="gt_row gt_left" headers="day">5/29/2025</td>
+<td class="gt_row gt_right" headers="duration_of_workout">1.50</td>
 <td class="gt_row gt_left" headers="exercise_type">Pull</td>
 <td class="gt_row gt_right" headers="asleep">7.23</td>
 <td class="gt_row gt_left" headers="time">Evening</td>
 <td class="gt_row gt_left" headers="alcohol">No</td>
 <td class="gt_row gt_right" headers="screen_time">6.06</td>
 <td class="gt_row gt_right" headers="calories_eaten">2391</td>
-</tr>
-<tr class="odd">
-<td class="gt_row gt_left" headers="day">Sat</td>
-<td class="gt_row gt_left" headers="duration_of_workout"></td>
-<td class="gt_row gt_left" headers="exercise_type">Push</td>
-<td class="gt_row gt_right" headers="asleep">NA</td>
-<td class="gt_row gt_left" headers="time"></td>
-<td class="gt_row gt_left" headers="alcohol"></td>
-<td class="gt_row gt_right" headers="screen_time">NA</td>
-<td class="gt_row gt_right" headers="calories_eaten">NA</td>
 </tr>
 </tbody>
 </table>
@@ -881,26 +880,27 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </div>
 </div>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(clean_data, </span>
-<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="fu">aes</span>(<span class="at">x =</span> asleep, <span class="at">y =</span> exercise_type, <span class="at">fill =</span> exercise_type)) <span class="sc">+</span></span>
-<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="fu">geom_density_ridges</span>() <span class="sc">+</span></span>
-<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a><span class="fu">theme_ridges</span>() <span class="sc">+</span> </span>
-<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a><span class="fu">theme</span>(<span class="at">legend.position =</span> <span class="st">"none"</span>,</span>
-<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a>      <span class="at">axis.title =</span> <span class="fu">element_text</span>(<span class="at">color =</span> <span class="st">"#00496FFF"</span>), </span>
-<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a>      <span class="at">axis.line =</span> <span class="fu">element_line</span>(<span class="at">color =</span> <span class="st">"#00496FFF"</span>), </span>
-<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a>      <span class="at">axis.text =</span> <span class="fu">element_text</span>(<span class="at">color =</span> <span class="st">"#00496FFF"</span>), </span>
-<span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a>      <span class="at">axis.ticks =</span> <span class="fu">element_line</span>(<span class="at">color =</span> <span class="st">"#00496FFF"</span>),</span>
-<span id="cb1-10"><a href="#cb1-10" aria-hidden="true" tabindex="-1"></a>      <span class="at">plot.title =</span> <span class="fu">element_text</span>(<span class="at">color =</span> <span class="st">"#DD4124FF"</span>))<span class="sc">+</span></span>
-<span id="cb1-11"><a href="#cb1-11" aria-hidden="true" tabindex="-1"></a><span class="fu">scale_fill_manual</span>(<span class="at">values =</span> PNWColors<span class="sc">::</span><span class="fu">pnw_palette</span>(<span class="st">"Bay"</span>, <span class="dv">5</span>))<span class="sc">+</span></span>
-<span id="cb1-12"><a href="#cb1-12" aria-hidden="true" tabindex="-1"></a><span class="fu">labs</span>(<span class="at">x =</span> <span class="st">"Sleep (Hours)"</span>,</span>
-<span id="cb1-13"><a href="#cb1-13" aria-hidden="true" tabindex="-1"></a><span class="at">y =</span> <span class="st">"Exercise"</span>,</span>
-<span id="cb1-14"><a href="#cb1-14" aria-hidden="true" tabindex="-1"></a><span class="at">title =</span> <span class="st">"Workout Plot"</span>,</span>
-<span id="cb1-15"><a href="#cb1-15" aria-hidden="true" tabindex="-1"></a><span class="at">caption =</span> <span class="st">"Evan's Gym Plot"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="co">#ggplot data</span></span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(clean_data, </span>
+<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a><span class="fu">aes</span>(<span class="at">x =</span> asleep, <span class="at">y =</span> exercise_type, <span class="at">fill =</span> exercise_type)) <span class="sc">+</span></span>
+<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a><span class="fu">geom_density_ridges</span>() <span class="sc">+</span></span>
+<span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a><span class="fu">theme_ridges</span>() <span class="sc">+</span> </span>
+<span id="cb2-6"><a href="#cb2-6" aria-hidden="true" tabindex="-1"></a><span class="fu">theme</span>(<span class="at">legend.position =</span> <span class="st">"none"</span>,</span>
+<span id="cb2-7"><a href="#cb2-7" aria-hidden="true" tabindex="-1"></a>      <span class="at">axis.title =</span> <span class="fu">element_text</span>(<span class="at">color =</span> <span class="st">"#00496FFF"</span>), </span>
+<span id="cb2-8"><a href="#cb2-8" aria-hidden="true" tabindex="-1"></a>      <span class="at">axis.line =</span> <span class="fu">element_line</span>(<span class="at">color =</span> <span class="st">"#00496FFF"</span>), </span>
+<span id="cb2-9"><a href="#cb2-9" aria-hidden="true" tabindex="-1"></a>      <span class="at">axis.text =</span> <span class="fu">element_text</span>(<span class="at">color =</span> <span class="st">"#00496FFF"</span>), </span>
+<span id="cb2-10"><a href="#cb2-10" aria-hidden="true" tabindex="-1"></a>      <span class="at">axis.ticks =</span> <span class="fu">element_line</span>(<span class="at">color =</span> <span class="st">"#00496FFF"</span>),</span>
+<span id="cb2-11"><a href="#cb2-11" aria-hidden="true" tabindex="-1"></a>      <span class="at">plot.title =</span> <span class="fu">element_text</span>(<span class="at">color =</span> <span class="st">"#DD4124FF"</span>))<span class="sc">+</span></span>
+<span id="cb2-12"><a href="#cb2-12" aria-hidden="true" tabindex="-1"></a><span class="fu">scale_fill_manual</span>(<span class="at">values =</span> PNWColors<span class="sc">::</span><span class="fu">pnw_palette</span>(<span class="st">"Bay"</span>, <span class="dv">5</span>))<span class="sc">+</span></span>
+<span id="cb2-13"><a href="#cb2-13" aria-hidden="true" tabindex="-1"></a><span class="fu">labs</span>(<span class="at">x =</span> <span class="st">"Sleep (Hours)"</span>,</span>
+<span id="cb2-14"><a href="#cb2-14" aria-hidden="true" tabindex="-1"></a><span class="at">y =</span> <span class="st">"Exercise"</span>,</span>
+<span id="cb2-15"><a href="#cb2-15" aria-hidden="true" tabindex="-1"></a><span class="at">title =</span> <span class="st">"Workout Plot"</span>,</span>
+<span id="cb2-16"><a href="#cb2-16" aria-hidden="true" tabindex="-1"></a><span class="at">caption =</span> <span class="st">"figure 1"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stderr">
 <pre><code>Picking joint bandwidth of 0.306</code></pre>
 </div>
 <div class="cell-output cell-output-stderr">
-<pre><code>Warning: Removed 4 rows containing non-finite outside the scale range
+<pre><code>Warning: Removed 3 rows containing non-finite outside the scale range
 (`stat_density_ridges()`).</code></pre>
 </div>
 <div class="cell-output-display">
@@ -915,28 +915,13 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <section id="the-averages" class="level3">
 <h3 class="anchored" data-anchor-id="the-averages">the averages</h3>
 <p>Below are the average hours of sleep for each exercise.</p>
-<p><strong>Push</strong></p>
 <div class="cell">
-<div class="cell-output cell-output-stdout">
-<pre><code>[1] 7.725</code></pre>
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="gym_files/figure-html/unnamed-chunk-4-1.png" class="img-fluid figure-img" width="672"></p>
+</figure>
 </div>
-</div>
-<p><strong>Pull</strong></p>
-<div class="cell">
-<div class="cell-output cell-output-stdout">
-<pre><code>[1] 6.85</code></pre>
-</div>
-</div>
-<p><strong>Legs</strong></p>
-<div class="cell">
-<div class="cell-output cell-output-stdout">
-<pre><code>[1] 6.19</code></pre>
-</div>
-</div>
-<p><strong>Rest</strong></p>
-<div class="cell">
-<div class="cell-output cell-output-stdout">
-<pre><code>[1] 7.123333</code></pre>
 </div>
 </div>
 

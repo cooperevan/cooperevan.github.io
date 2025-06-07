@@ -15,7 +15,7 @@ about:
       href: https://github.com/cooperevan
     - icon: envelope
       text: Email
-      href: ejc5502@gmail.com
+      href: mailto:ejc5502@gmail.com
 ---
 
 Welcome! My name is Evan and I've recently graduated from the **University of Santa Barbara, California** and am now working towards a career in **Environmental Science** with a focus on Conservation and Management. Outside of my profession you'll find me exploring nature, in the gym, or looking at birds.

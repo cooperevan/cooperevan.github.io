@@ -11,9 +11,8 @@ website:
       - about.qmd
       - href: resume.qmd
         text: Resume
-      - project.qmd
       - href: gym.qmd
-        text: Gym
+        text: Gym Project
 
 format:
   html:
